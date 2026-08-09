@@ -37,7 +37,7 @@
     }
   },
   "home-page": {
-    "website-name": "Alnasl",
+    "website-name": "Alnasl 箕宿一",
     "summary": "一個給 CharaChorder 3D 輸入裝置內建滑鼠使用的非官方練習工具。訓練你的游標又快又準地抵達目標。",
     "speed-mechanic": {
       "title": "CharaChorder 滑鼠的速度機制",
@@ -48,7 +48,7 @@
     "start-practice": "開始練習",
     "official-docs": "官方滑鼠說明文件",
     "source-code": "原始碼",
-    "remark": "Alnasl（發音：/ælˈnæsl/）是人馬座弓箭箭頭上的星，標示著箭矢瞄準的方向。"
+    "remark": "Alnasl（發音：/ælˈnæsl/）、箕宿一、是人馬座弓箭箭頭上的星，標示著箭矢瞄準的方向。"
   },
   "target-arena": {
     "idle-hint": {
@@ -125,7 +125,7 @@
     "no-data-message": "目前還沒有練習紀錄。到練習頁面完成一回合後，就可以在這裡看到你的進步曲線。"
   },
   "information-page": {
-    "description": "本網站 Alnasl 是一個非官方的練習工具，專為 CharaChorder 3D 輸入裝置（包括 CharaChorder One、CharaChorder Two、CCU 與 Master Forge）的內建滑鼠所設計。",
+    "description": "本網站 Alnasl 箕宿一，是一個非官方的練習工具，專為 CharaChorder 3D 輸入裝置（包括 CharaChorder One、CharaChorder Two、CCU 與 Master Forge）的內建滑鼠所設計。",
     "page-introductions-title": "各頁面介紹",
     "practice-page": {
       "title": "練習頁面",
