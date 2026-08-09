@@ -5,7 +5,6 @@ An unofficial practice tool for the built-in mouse of CharaChorder 3D input devi
 ## Links
 
 - [Website](https://andy23512.github.io/alnasl/)
-- [Alnitak](https://andy23512.github.io/alnitak/) (Companion project for typing practice on CharaChorder 3D input devices)
 
 ## Background
 
