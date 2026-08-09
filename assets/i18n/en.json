@@ -1,0 +1,169 @@
+{
+  "general": {
+    "throughput-unit": "bit/s",
+    "movement-time-unit": "ms"
+  },
+  "nav": {
+    "brand": "Alnasl",
+    "menu-toggle": {
+      "aria-label": "toggle navigation menu"
+    },
+    "page": {
+      "home": {
+        "title": "home",
+        "tooltip": "Go to Home page",
+        "aria-label": "home page link"
+      },
+      "practice": {
+        "title": "practice",
+        "tooltip": "Go to Practice page",
+        "aria-label": "practice page link"
+      },
+      "statistics": {
+        "title": "stats",
+        "tooltip": "Go to Statistics page",
+        "aria-label": "statistics page link"
+      },
+      "settings": {
+        "title": "settings",
+        "tooltip": "Go to Settings page",
+        "aria-label": "settings page link"
+      },
+      "information": {
+        "title": "info",
+        "tooltip": "Go to Information page",
+        "aria-label": "information page link"
+      }
+    }
+  },
+  "home-page": {
+    "website-name": "Alnasl",
+    "summary": "An unofficial practice tool for the built-in mouse of CharaChorder 3D input devices. Train your cursor to arrive fast, and land right on target.",
+    "speed-mechanic": {
+      "title": "How the CharaChorder mouse speed works",
+      "fast": "Move both 4-way joysticks in the same direction at once for Fast speed - use it to cover distance quickly.",
+      "slow": "Move only one joystick for Slow speed - use it to fine-tune onto a precise point.",
+      "goal": "This tool trains the switch between the two: a fast, coarse approach followed by a slow, accurate landing."
+    },
+    "start-practice": "start practice",
+    "official-docs": "official mouse docs",
+    "source-code": "source code",
+    "remark": "Alnasl (pronunciation: /ælˈnæsl/) is the arrowhead star at the tip of Sagittarius's bow, marking where the arrow is aimed."
+  },
+  "target-arena": {
+    "idle-hint": {
+      "move": "A target will appear. Move the pointer onto it and hold still until it fills in - no click needed.",
+      "click": "A target will appear. Move the pointer onto it and click as fast and accurately as you can.",
+      "drag": "A dashed circle marks the pickup point. Press down inside it, drag onto the solid target, then release."
+    },
+    "start-button": "start",
+    "finished-message": "Session complete.",
+    "practice-again-button": "practice again"
+  },
+  "practice-page": {
+    "title": "practice",
+    "panel-header": {
+      "setting": "setting"
+    },
+    "hud": {
+      "trial": "trial",
+      "errors": "errors"
+    },
+    "result": {
+      "trials": "trials",
+      "error-rate": "error rate",
+      "movement-time": "avg. movement time",
+      "throughput": "throughput"
+    }
+  },
+  "practice-setting": {
+    "mode": {
+      "title": "practice mode",
+      "move": "move",
+      "click": "click",
+      "drag": "drag",
+      "description": {
+        "move": "Pure cursor movement: reach the target and hold still on it, no clicking.",
+        "click": "Move then click: the standard point-and-click task.",
+        "drag": "Press on the pickup point, drag onto the target, then release."
+      }
+    },
+    "target-count": {
+      "title": "target count"
+    },
+    "rounds": {
+      "title": "rounds"
+    },
+    "target-width": {
+      "title": "target size"
+    },
+    "amplitude": {
+      "title": "distance"
+    },
+    "dwell-time": {
+      "title": "hold time"
+    }
+  },
+  "settings-page": {
+    "title": "settings",
+    "panel-header": {
+      "practice-defaults": "practice defaults",
+      "ui-language": "UI language",
+      "data-deletion": "data deletion"
+    },
+    "button": {
+      "delete-practice-history": "delete all practice history"
+    }
+  },
+  "statistics-page": {
+    "metric": "metric",
+    "metric-name": {
+      "throughput": "throughput",
+      "movement-time": "movement time",
+      "error-rate": "error rate"
+    },
+    "no-data-message": "No practice sessions recorded yet. Finish a session on the Practice page to see your progress here."
+  },
+  "information-page": {
+    "description": "This website, Alnasl, is an unofficial mouse practice tool designed for the built-in mouse of CharaChorder 3D input devices, including CharaChorder One, CharaChorder Two, CCU and Master Forge.",
+    "page-introductions-title": "page introductions",
+    "practice-page": {
+      "title": "practice page",
+      "description": [
+        "At practice page, you can choose a mouse scenario (move, click, or drag) and difficulty (target count, size, and distance), then work through a round of targets arranged in a ring so every movement direction gets covered.",
+        "After each session you'll see your error rate, average movement time, and throughput (a Fitts's law measure of speed and accuracy combined)."
+      ]
+    },
+    "statistics-page": {
+      "title": "statistics page",
+      "description": "At statistics page, you can see your recorded practice sessions charted over time, split by mode, so you can track whether your throughput is improving."
+    },
+    "settings-page": {
+      "title": "settings page",
+      "description": "At settings page, you can change the default practice mode and difficulty, switch the UI language, and clear your stored practice history."
+    },
+    "methodology": {
+      "title": "how throughput is calculated",
+      "description": {
+        "0": "Each trial's index of difficulty (ID) is calculated with the Shannon formulation of Fitts's law, where A is the distance travelled and W is the target size:",
+        "1": "Throughput (TP) is the mean index of difficulty divided by the mean movement time, giving a single bits-per-second score that combines speed and accuracy - a higher number means you moved fast without giving up accuracy."
+      }
+    },
+    "disclaimers": {
+      "title": "disclaimers",
+      "description": {
+        "0": {
+          "0": "This site is not affiliated, associated, authorized, endorsed by, or in any way officially connected with CharaChorder. Their official website can be found at ",
+          "2": "."
+        },
+        "1": {
+          "0": "Your practice statistics and settings in this tool are kept and stored locally in the ",
+          "1": "IndexedDB",
+          "2": " and ",
+          "3": "localStorage",
+          "4": "of your browser. They are not transmitted to any other place via this tool."
+        }
+      }
+    }
+  }
+}

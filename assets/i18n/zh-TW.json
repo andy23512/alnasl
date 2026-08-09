@@ -1,0 +1,169 @@
+{
+  "general": {
+    "throughput-unit": "bit/s",
+    "movement-time-unit": "ms"
+  },
+  "nav": {
+    "brand": "Alnasl",
+    "menu-toggle": {
+      "aria-label": "切換導覽選單"
+    },
+    "page": {
+      "home": {
+        "title": "首頁",
+        "tooltip": "前往首頁",
+        "aria-label": "首頁連結"
+      },
+      "practice": {
+        "title": "練習",
+        "tooltip": "前往練習頁面",
+        "aria-label": "練習頁面連結"
+      },
+      "statistics": {
+        "title": "統計",
+        "tooltip": "前往統計頁面",
+        "aria-label": "統計頁面連結"
+      },
+      "settings": {
+        "title": "設定",
+        "tooltip": "前往設定頁面",
+        "aria-label": "設定頁面連結"
+      },
+      "information": {
+        "title": "資訊",
+        "tooltip": "前往資訊頁面",
+        "aria-label": "資訊頁面連結"
+      }
+    }
+  },
+  "home-page": {
+    "website-name": "Alnasl",
+    "summary": "一個給 CharaChorder 3D 輸入裝置內建滑鼠使用的非官方練習工具。訓練你的游標又快又準地抵達目標。",
+    "speed-mechanic": {
+      "title": "CharaChorder 滑鼠的速度機制",
+      "fast": "同時把兩個四向搖桿往同一個方向推，就是 Fast 速度──用來快速跨越距離。",
+      "slow": "只推動其中一個搖桿，就是 Slow 速度──用來微調到精確的位置。",
+      "goal": "這個工具就是要練習在兩者之間切換：先用 Fast 快速接近，再用 Slow 精準落點。"
+    },
+    "start-practice": "開始練習",
+    "official-docs": "官方滑鼠說明文件",
+    "source-code": "原始碼",
+    "remark": "Alnasl（發音：/ælˈnæsl/）是人馬座弓箭箭頭上的星，標示著箭矢瞄準的方向。"
+  },
+  "target-arena": {
+    "idle-hint": {
+      "move": "畫面上會出現一個目標。把游標移到上面並停留不動，直到它填滿——不需要點擊。",
+      "click": "畫面上會出現一個目標。盡可能又快又準地把游標移過去並點擊。",
+      "drag": "虛線圓圈是拿取點。在裡面按下滑鼠，拖曳到實心的目標上再放開。"
+    },
+    "start-button": "開始",
+    "finished-message": "本回合練習完成。",
+    "practice-again-button": "再練一次"
+  },
+  "practice-page": {
+    "title": "練習",
+    "panel-header": {
+      "setting": "設定"
+    },
+    "hud": {
+      "trial": "回合",
+      "errors": "失誤"
+    },
+    "result": {
+      "trials": "次數",
+      "error-rate": "失誤率",
+      "movement-time": "平均移動時間",
+      "throughput": "傳輸率"
+    }
+  },
+  "practice-setting": {
+    "mode": {
+      "title": "練習情境",
+      "move": "移動",
+      "click": "點擊",
+      "drag": "拖曳",
+      "description": {
+        "move": "純游標移動：抵達目標並停留在上面，不需要點擊。",
+        "click": "移動後點擊：最常見的「移過去再點一下」操作。",
+        "drag": "在拿取點按下，拖曳到目標上再放開。"
+      }
+    },
+    "target-count": {
+      "title": "目標數量"
+    },
+    "rounds": {
+      "title": "回合數"
+    },
+    "target-width": {
+      "title": "目標大小"
+    },
+    "amplitude": {
+      "title": "移動距離"
+    },
+    "dwell-time": {
+      "title": "停留時間"
+    }
+  },
+  "settings-page": {
+    "title": "設定",
+    "panel-header": {
+      "practice-defaults": "練習預設值",
+      "ui-language": "介面語言",
+      "data-deletion": "刪除資料"
+    },
+    "button": {
+      "delete-practice-history": "刪除所有練習紀錄"
+    }
+  },
+  "statistics-page": {
+    "metric": "指標",
+    "metric-name": {
+      "throughput": "傳輸率",
+      "movement-time": "移動時間",
+      "error-rate": "失誤率"
+    },
+    "no-data-message": "目前還沒有練習紀錄。到練習頁面完成一回合後，就可以在這裡看到你的進步曲線。"
+  },
+  "information-page": {
+    "description": "本網站 Alnasl 是一個非官方的練習工具，專為 CharaChorder 3D 輸入裝置（包括 CharaChorder One、CharaChorder Two、CCU 與 Master Forge）的內建滑鼠所設計。",
+    "page-introductions-title": "各頁面介紹",
+    "practice-page": {
+      "title": "練習頁面",
+      "description": [
+        "在練習頁面，你可以選擇滑鼠情境（移動、點擊或拖曳）與難度（目標數量、大小與距離），接著完成一輪排列成環形的目標，讓每個移動方向都被練習到。",
+        "每回合結束後，你會看到失誤率、平均移動時間，以及傳輸率（一個結合速度與準確度的費茲定律指標）。"
+      ]
+    },
+    "statistics-page": {
+      "title": "統計頁面",
+      "description": "在統計頁面，你可以看到自己過去練習紀錄依情境分類、隨時間變化的圖表，藉此追蹤傳輸率是否有在進步。"
+    },
+    "settings-page": {
+      "title": "設定頁面",
+      "description": "在設定頁面，你可以調整預設的練習情境與難度、切換介面語言，並清除已儲存的練習紀錄。"
+    },
+    "methodology": {
+      "title": "傳輸率是怎麼算出來的",
+      "description": {
+        "0": "每一次移動的難度指標（ID）是用費茲定律的 Shannon 公式計算，其中 A 是實際移動距離，W 是目標大小：",
+        "1": "傳輸率（TP）則是平均難度指標除以平均移動時間，得到一個同時反映速度與準確度的 bits/s 分數——數字越高，代表你在不犧牲準確度的前提下移動得越快。"
+      }
+    },
+    "disclaimers": {
+      "title": "免責聲明",
+      "description": {
+        "0": {
+          "0": "本網站與 CharaChorder 沒有任何隸屬、關聯、授權或官方合作關係。CharaChorder 官方網站為 ",
+          "2": "。"
+        },
+        "1": {
+          "0": "你在這個工具中的練習統計資料與設定，會儲存在瀏覽器本機的 ",
+          "1": "IndexedDB",
+          "2": " 與 ",
+          "3": "localStorage",
+          "4": " 中，不會透過本工具傳送到任何其他地方。"
+        }
+      }
+    }
+  }
+}
