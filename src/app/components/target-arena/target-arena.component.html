@@ -1,0 +1,95 @@
+<div
+  #arena
+  class="relative mx-auto aspect-square w-full max-w-[560px] touch-none select-none overflow-hidden rounded-lg border border-gray-400 bg-gray-600"
+  (pointermove)="onPointerMove($event)"
+  (pointerdown)="onPointerDown($event)"
+  (pointerup)="onPointerUp($event)"
+  (click)="onClick($event)"
+>
+  @if (phase() === "idle") {
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center"
+    >
+      <p class="max-w-xs text-sm text-gray-100">
+        {{ "target-arena.idle-hint." + settings().mode | translate }}
+      </p>
+      <button
+        type="button"
+        mat-flat-button
+        color="primary"
+        (click)="startSession(); $event.stopPropagation()"
+      >
+        <mat-icon>play_arrow</mat-icon>
+        {{ "target-arena.start-button" | translate | realTitleCase }}
+      </button>
+    </div>
+  }
+
+  @if (phase() === "running") {
+    @if (settings().mode === PracticeMode.Drag && sourcePoint(); as source) {
+      <div
+        class="absolute rounded-full border-2 border-dashed border-alnasl-300/70"
+        [style.left.px]="source.x - settings().targetWidth / 2"
+        [style.top.px]="source.y - settings().targetWidth / 2"
+        [style.width.px]="settings().targetWidth"
+        [style.height.px]="settings().targetWidth"
+      ></div>
+    }
+    @if (targetPoint(); as target) {
+      <div
+        class="absolute rounded-full bg-alnasl-500 shadow-[0_0_18px_2px_rgba(255,193,7,0.6)]"
+        [class.animate-pulse]="dwelling()"
+        [style.left.px]="target.x - settings().targetWidth / 2"
+        [style.top.px]="target.y - settings().targetWidth / 2"
+        [style.width.px]="settings().targetWidth"
+        [style.height.px]="settings().targetWidth"
+      >
+        @if (settings().mode === PracticeMode.Move) {
+          <svg class="absolute inset-0 -rotate-90" viewBox="0 0 36 36">
+            <circle
+              cx="18"
+              cy="18"
+              r="16"
+              fill="none"
+              stroke="rgba(0,0,0,0.35)"
+              stroke-width="3"
+              pathLength="100"
+              [attr.stroke-dasharray]="100"
+              [attr.stroke-dashoffset]="100 - dwellProgress() * 100"
+            ></circle>
+          </svg>
+        }
+      </div>
+    }
+  }
+
+  @if (feedback(); as fb) {
+    <div
+      class="pointer-events-none absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full"
+      [class.bg-green-400]="!fb.isError"
+      [class.bg-red-400]="fb.isError"
+      [style.left.px]="fb.x"
+      [style.top.px]="fb.y"
+    ></div>
+  }
+
+  @if (phase() === "finished") {
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gray-600/90 p-6 text-center"
+    >
+      <mat-icon class="!h-10 !w-10 text-alnasl-500" style="font-size: 40px">
+        flag_circle
+      </mat-icon>
+      <p>{{ "target-arena.finished-message" | translate }}</p>
+      <button
+        type="button"
+        mat-flat-button
+        color="primary"
+        (click)="startSession(); $event.stopPropagation()"
+      >
+        <mat-icon>replay</mat-icon>
+        {{ "target-arena.practice-again-button" | translate | realTitleCase }}
+      </button>
+    </div>
+  }
+</div>

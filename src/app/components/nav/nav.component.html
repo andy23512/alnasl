@@ -1,0 +1,54 @@
+<mat-toolbar class="!bg-gray-450 justify-between shadow" data-style-dense>
+  <a
+    routerLink="/"
+    class="flex items-center gap-2 text-alnasl-500 no-underline"
+  >
+    <mat-icon>my_location</mat-icon>
+    <span class="text-xl">{{ "nav.brand" | translate }}</span>
+  </a>
+  @if (isHandset$ | async) {
+    <button
+      type="button"
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      [attr.aria-label]="'nav.menu-toggle.aria-label' | translate"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      @for (navLink of navLinks; track navLink.routerLink) {
+        <a
+          mat-menu-item
+          [routerLink]="navLink.routerLink"
+          routerLinkActive="list-item-active"
+          [routerLinkActiveOptions]="navLink.routerLinkActiveOptions"
+        >
+          <mat-icon>{{ navLink.icon }}</mat-icon>
+          <span>{{ navLink.title | translate | realTitleCase }}</span>
+        </a>
+      }
+    </mat-menu>
+  } @else {
+    <div class="flex items-center gap-1">
+      @for (navLink of navLinks; track navLink.routerLink) {
+        <a
+          [routerLink]="navLink.routerLink"
+          routerLinkActive
+          [routerLinkActiveOptions]="navLink.routerLinkActiveOptions"
+          #rla="routerLinkActive"
+          [attr.aria-label]="navLink.ariaLabel | translate"
+          [matTooltip]="navLink.tooltipMessage | translate"
+        >
+          <button
+            type="button"
+            mat-flat-button
+            [color]="rla.isActive ? 'primary' : null"
+          >
+            <mat-icon>{{ navLink.icon }}</mat-icon>
+            {{ navLink.title | translate | realTitleCase }}
+          </button>
+        </a>
+      }
+    </div>
+  }
+</mat-toolbar>

@@ -1,0 +1,67 @@
+<div class="mx-auto flex max-w-3xl flex-col gap-4 p-4">
+  <h2 class="text-2xl">{{ "practice-page.title" | translate | realTitleCase }}</h2>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="!text-lg">
+      {{ "practice-page.panel-header.setting" | translate | realTitleCase }}
+    </mat-expansion-panel-header>
+    <app-practice-setting-form></app-practice-setting-form>
+  </mat-expansion-panel>
+
+  @if (inProgress()) {
+    <div class="flex items-center justify-between text-sm text-gray-100">
+      <span>
+        {{ "practice-page.hud.trial" | translate }}
+        {{ trialNumber() }} / {{ totalTrials() }}
+      </span>
+      <span class="flex items-center gap-1">
+        <mat-icon class="!text-base" style="font-size: 16px; height: 16px; width: 16px">error</mat-icon>
+        {{ "practice-page.hud.errors" | translate }}: {{ errorCount() }}
+      </span>
+    </div>
+  }
+
+  <app-target-arena
+    [settings]="settings()"
+    (sessionStarted)="onSessionStarted($event)"
+    (trialCompleted)="onTrialCompleted($event)"
+    (sessionCompleted)="onSessionCompleted($event)"
+  ></app-target-arena>
+
+  @if (lastSummary(); as summary) {
+    <div
+      class="grid grid-cols-2 gap-3 rounded-lg border border-gray-400 bg-gray-600 p-4 sm:grid-cols-4"
+    >
+      <div>
+        <div class="text-xs text-gray-200">
+          {{ "practice-page.result.trials" | translate }}
+        </div>
+        <div class="text-xl text-alnasl-400">{{ summary.trialCount }}</div>
+      </div>
+      <div>
+        <div class="text-xs text-gray-200">
+          {{ "practice-page.result.error-rate" | translate }}
+        </div>
+        <div class="text-xl text-alnasl-400">
+          {{ summary.errorRate | percent: "1.0-1" }}
+        </div>
+      </div>
+      <div>
+        <div class="text-xs text-gray-200">
+          {{ "practice-page.result.movement-time" | translate }}
+        </div>
+        <div class="text-xl text-alnasl-400">
+          {{ summary.meanMovementTimeMs | number: "1.0-0" }} ms
+        </div>
+      </div>
+      <div>
+        <div class="text-xs text-gray-200">
+          {{ "practice-page.result.throughput" | translate }}
+        </div>
+        <div class="text-xl text-alnasl-400">
+          {{ summary.throughputBitsPerSecond | number: "1.1-2" }} bit/s
+        </div>
+      </div>
+    </div>
+  }
+</div>

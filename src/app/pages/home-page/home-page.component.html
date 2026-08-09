@@ -1,0 +1,48 @@
+<main class="flex h-full flex-col items-center justify-center gap-4 p-4 text-center">
+  <header>
+    <h1 class="mb-0 text-4xl text-alnasl-500">
+      {{ "home-page.website-name" | translate }}
+    </h1>
+  </header>
+  <p class="max-w-xl">{{ "home-page.summary" | translate }}</p>
+  <div class="max-w-xl rounded-lg border border-gray-400 bg-gray-600 p-4 text-left text-sm text-gray-100">
+    <p class="mb-2 flex items-center gap-1 font-bold text-alnasl-300">
+      <mat-icon style="font-size: 18px; height: 18px; width: 18px">bolt</mat-icon>
+      {{ "home-page.speed-mechanic.title" | translate | realTitleCase }}
+    </p>
+    <p class="mb-1">{{ "home-page.speed-mechanic.fast" | translate }}</p>
+    <p class="mb-2">{{ "home-page.speed-mechanic.slow" | translate }}</p>
+    <p>{{ "home-page.speed-mechanic.goal" | translate }}</p>
+  </div>
+  <a routerLink="/practice">
+    <button type="button" mat-flat-button color="primary">
+      <mat-icon>my_location</mat-icon>
+      {{ "home-page.start-practice" | translate | realTitleCase }}
+    </button>
+  </a>
+  <div>
+    <a
+      href="https://docs.charachorder.com/GenerativeTextMenu.html#mouse"
+      target="_blank"
+      rel="noopener"
+    >
+      <button type="button" mat-button>
+        <mat-icon>menu_book</mat-icon>
+        {{ "home-page.official-docs" | translate | realTitleCase }}
+      </button>
+    </a>
+    <a
+      href="https://github.com/andy23512/alnasl"
+      target="_blank"
+      rel="noopener"
+    >
+      <button type="button" mat-button>
+        <mat-icon>code</mat-icon>
+        {{ "home-page.source-code" | translate | realTitleCase }}
+      </button>
+    </a>
+  </div>
+</main>
+<div class="absolute bottom-0 w-full text-center text-alnasl-500 opacity-80">
+  ★ {{ "home-page.remark" | translate }} ★
+</div>

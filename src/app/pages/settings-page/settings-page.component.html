@@ -1,0 +1,46 @@
+<div class="mx-auto max-w-3xl p-4">
+  <h2 class="mb-3 text-2xl">
+    {{ "settings-page.title" | translate | realTitleCase }}
+  </h2>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header class="!text-xl">{{
+        "settings-page.panel-header.practice-defaults" | translate | realTitleCase
+      }}</mat-expansion-panel-header>
+      <app-practice-setting-form></app-practice-setting-form>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="!text-xl">{{
+        "settings-page.panel-header.ui-language" | translate | realTitleCase
+      }}</mat-expansion-panel-header>
+      <mat-button-toggle-group
+        class="opacity-90"
+        [ngModel]="languageSettingStore.uiLanguage()"
+        (ngModelChange)="setLanguage($event)"
+        [hideSingleSelectionIndicator]="true"
+      >
+        @for (language of supportedLanguages; track language.id) {
+          <mat-button-toggle [value]="language.id">
+            {{ language.name }}
+          </mat-button-toggle>
+        }
+      </mat-button-toggle-group>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="!text-xl">{{
+        "settings-page.panel-header.data-deletion" | translate | realTitleCase
+      }}</mat-expansion-panel-header>
+      <button
+        type="button"
+        color="warn"
+        mat-flat-button
+        (click)="clearHistory()"
+      >
+        <mat-icon>delete</mat-icon>
+        {{
+          "settings-page.button.delete-practice-history" | translate | realTitleCase
+        }}
+      </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,108 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-icons {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+// Plus imports for other components in your app.
+@import "custom-palette";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$alnasl-primary: mat.m2-define-palette($primary-map);
+$alnasl-accent: mat.m2-define-palette($accent-map);
+
+// The warn palette is optional (defaults to red).
+$alnasl-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$alnasl-theme: mat.m2-define-dark-theme((color: (primary: $alnasl-primary,
+        accent: $alnasl-accent,
+        warn: $alnasl-warn,
+      ),
+    ));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($alnasl-theme);
+
+html {
+  --mat-toolbar-title-text-font: Roboto, sans-serif;
+  --mat-toolbar-title-text-line-height: 32px;
+  --mat-toolbar-title-text-size: 20px;
+  --mat-toolbar-title-text-tracking: 0.0125em;
+  --mat-toolbar-title-text-weight: 500;
+}
+
+.list-item-active {
+  background: mat.get-theme-color($alnasl-theme,
+      primary,
+      default,
+      0.5) !important;
+}
+
+.mat-button-toggle-checked {
+  background-color: mat.get-theme-color($alnasl-theme, primary) !important;
+  color: mat.get-theme-color($alnasl-theme, primary, default-contrast) !important;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  @apply h-full;
+}
+
+body {
+  @apply font-body m-0 text-gray-50;
+}
+
+kbd {
+  @apply border border-solid border-gray-200 px-1 rounded text-gray-200;
+
+  &.small {
+    @apply text-xs;
+  }
+}
+
+mat-sidenav[data-style-dense] {
+  @include mat.toolbar-density(-3);
+  @include mat.list-density(-3);
+  @include mat.input-density(-3);
+  @include mat.form-field-density(-3);
+  @include mat.button-density(-1);
+}
+
+.small-icon-button-wrapper {
+  @include mat.icon-button-density(-3);
+}
+
+.mat-mdc-icon-button {
+  @apply leading-none;
+}

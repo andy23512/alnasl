@@ -1,0 +1,100 @@
+<div class="flex flex-col gap-4">
+  <div>
+    <div class="mb-1 text-sm text-gray-100">
+      {{ "practice-setting.mode.title" | translate | realTitleCase }}
+    </div>
+    <mat-button-toggle-group
+      class="opacity-90"
+      [ngModel]="store.mode()"
+      (ngModelChange)="setMode($event)"
+      [hideSingleSelectionIndicator]="true"
+    >
+      <mat-button-toggle [value]="PracticeMode.Move">
+        <mat-icon>open_with</mat-icon>
+        {{ "practice-setting.mode.move" | translate | realTitleCase }}
+      </mat-button-toggle>
+      <mat-button-toggle [value]="PracticeMode.Click">
+        <mat-icon>ads_click</mat-icon>
+        {{ "practice-setting.mode.click" | translate | realTitleCase }}
+      </mat-button-toggle>
+      <mat-button-toggle [value]="PracticeMode.Drag">
+        <mat-icon>drag_pan</mat-icon>
+        {{ "practice-setting.mode.drag" | translate | realTitleCase }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <p class="mt-1 text-xs text-gray-200">
+      {{ "practice-setting.mode.description." + store.mode() | translate }}
+    </p>
+  </div>
+
+  <div class="flex flex-wrap gap-3">
+    <mat-form-field class="w-40">
+      <mat-label>{{
+        "practice-setting.target-count.title" | translate | realTitleCase
+      }}</mat-label>
+      <mat-select
+        [ngModel]="store.targetCount()"
+        (ngModelChange)="setTargetCount($event)"
+      >
+        @for (option of targetCountOptions; track option) {
+          <mat-option [value]="option">{{ option }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-32">
+      <mat-label>{{
+        "practice-setting.rounds.title" | translate | realTitleCase
+      }}</mat-label>
+      <mat-select
+        [ngModel]="store.rounds()"
+        (ngModelChange)="setRounds($event)"
+      >
+        @for (option of roundOptions; track option) {
+          <mat-option [value]="option">{{ option }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-36">
+      <mat-label>{{
+        "practice-setting.target-width.title" | translate | realTitleCase
+      }}</mat-label>
+      <input
+        matInput
+        type="number"
+        [ngModel]="store.targetWidth()"
+        (ngModelChange)="setTargetWidth($event)"
+      />
+      <span matTextSuffix>px</span>
+    </mat-form-field>
+
+    <mat-form-field class="w-36">
+      <mat-label>{{
+        "practice-setting.amplitude.title" | translate | realTitleCase
+      }}</mat-label>
+      <input
+        matInput
+        type="number"
+        [ngModel]="store.amplitude()"
+        (ngModelChange)="setAmplitude($event)"
+      />
+      <span matTextSuffix>px</span>
+    </mat-form-field>
+
+    @if (store.mode() === PracticeMode.Move) {
+      <mat-form-field class="w-36">
+        <mat-label>{{
+          "practice-setting.dwell-time.title" | translate | realTitleCase
+        }}</mat-label>
+        <input
+          matInput
+          type="number"
+          [ngModel]="store.dwellTimeMs()"
+          (ngModelChange)="setDwellTimeMs($event)"
+        />
+        <span matTextSuffix>ms</span>
+      </mat-form-field>
+    }
+  </div>
+</div>
