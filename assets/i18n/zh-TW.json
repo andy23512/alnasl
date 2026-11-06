@@ -125,7 +125,7 @@
     "no-data-message": "目前還沒有練習紀錄。到練習頁面完成一回合後，就可以在這裡看到你的進步曲線。"
   },
   "information-page": {
-    "description": "本網站 Alnasl 箕宿一，是一個非官方的練習工具，專為 CharaChorder 3D 輸入裝置（包括 CharaChorder One、CharaChorder Two、CCU 與 Master Forge）的內建滑鼠所設計。",
+    "description": "本網站 Alnasl 箕宿一，是一個非官方的練習工具，專為 CharaChorder 3D 輸入裝置（包括 CharaChorder One、CharaChorder Two 與 CCU）的內建滑鼠所設計。",
     "page-introductions-title": "各頁面介紹",
     "practice-page": {
       "title": "練習頁面",
