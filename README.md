@@ -1,6 +1,6 @@
 # Alnasl
 
-An unofficial practice tool for the built-in mouse of CharaChorder 3D input devices (CharaChorder One, CharaChorder Two, CCU and Master Forge)
+An unofficial practice tool for the built-in mouse of CharaChorder 3D input devices (CharaChorder One, CharaChorder Two and CCU)
 
 ## Links
 

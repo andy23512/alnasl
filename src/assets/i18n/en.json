@@ -125,7 +125,7 @@
     "no-data-message": "No practice sessions recorded yet. Finish a session on the Practice page to see your progress here."
   },
   "information-page": {
-    "description": "This website, Alnasl, is an unofficial mouse practice tool designed for the built-in mouse of CharaChorder 3D input devices, including CharaChorder One, CharaChorder Two, CCU and Master Forge.",
+    "description": "This website, Alnasl, is an unofficial mouse practice tool designed for the built-in mouse of CharaChorder 3D input devices, including CharaChorder One, CharaChorder Two and CCU.",
     "page-introductions-title": "page introductions",
     "practice-page": {
       "title": "practice page",
