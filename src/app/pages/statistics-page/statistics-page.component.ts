@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, HostBinding, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -21,6 +22,12 @@ enum Metric {
 
 const MODES = [PracticeMode.Move, PracticeMode.Click, PracticeMode.Drag];
 
+const TRANSLATION_KEYS = [
+  'general.throughput-unit',
+  'general.movement-time-unit',
+  ...MODES.map((mode) => 'practice-setting.mode.' + mode),
+];
+
 @Component({
   selector: 'app-statistics-page',
   standalone: true,
@@ -38,6 +45,12 @@ export class StatisticsPageComponent {
   chartConstructor = 'stockChart';
   updateFlag = false;
 
+  // stream() emits once the translation file has loaded and again on every
+  // language change, so the chart is rebuilt with real labels instead of keys.
+  private translations = toSignal(
+    this.translateService.stream(TRANSLATION_KEYS) as Observable<Record<string, string>>,
+  );
+
   sessions = computedAsync(() => {
     return liveQuery(() =>
       db.sessions.orderBy('timestamp').toArray(),
@@ -46,17 +59,18 @@ export class StatisticsPageComponent {
 
   chartOptions = computed<Highcharts.Options | null>(() => {
     const sessions = this.sessions();
-    if (!sessions) {
+    const translations = this.translations();
+    if (!sessions || !translations) {
       return null;
     }
     const currentMetric = this.currentMetric();
-    const { unit, extract } = this.metricConfig(currentMetric);
+    const { unit, extract } = this.metricConfig(currentMetric, translations);
     const series: Highcharts.SeriesOptionsType[] = MODES.map((mode) => ({
       type: 'line' as const,
       data: sessions
         .filter((s) => s.mode === mode)
         .map((s) => [s.timestamp, extract(s)]),
-      name: this.translateService.instant('practice-setting.mode.' + mode),
+      name: translations['practice-setting.mode.' + mode],
       dataGrouping: { groupPixelWidth: 20 },
       marker: { enabled: true, radius: 5 },
     })).filter((s) => s.data.length > 0);
@@ -76,19 +90,22 @@ export class StatisticsPageComponent {
     };
   });
 
-  private metricConfig(metric: Metric): {
+  private metricConfig(
+    metric: Metric,
+    translations: Record<string, string>,
+  ): {
     unit: string;
     extract: (s: SessionSummary) => number;
   } {
     switch (metric) {
       case Metric.Throughput:
         return {
-          unit: this.translateService.instant('general.throughput-unit'),
+          unit: translations['general.throughput-unit'],
           extract: (s) => s.throughputBitsPerSecond,
         };
       case Metric.MovementTime:
         return {
-          unit: this.translateService.instant('general.movement-time-unit'),
+          unit: translations['general.movement-time-unit'],
           extract: (s) => s.meanMovementTimeMs,
         };
       case Metric.ErrorRate:
