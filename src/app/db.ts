@@ -5,7 +5,7 @@ export class AppDB extends Dexie {
   sessions!: Table<SessionSummary, number>;
 
   constructor() {
-    super('appDB');
+    super('alnasl-appDB');
     this.version(1).stores({
       sessions: '++id, timestamp, mode',
     });
