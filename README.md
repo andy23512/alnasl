@@ -1,5 +1,7 @@
 # Alnasl
 
+[![CI](https://github.com/andy23512/alnasl/actions/workflows/ci.yml/badge.svg)](https://github.com/andy23512/alnasl/actions/workflows/ci.yml)
+
 An unofficial practice tool for the built-in mouse of CharaChorder 3D input devices (CharaChorder One, CharaChorder Two and CCU)
 
 ## Links
